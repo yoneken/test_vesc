@@ -1,0 +1,11 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+
+	<arg name="port" default="/dev/ttyACM0" />
+
+	<include file="$(find vesc_driver)/launch/vesc_driver_nodelet.launch">
+		<arg name="port" value="$(arg port)"/>
+	</include>
+
+	<node name="test" pkg="test_vesc" type="test_vesc.py" output="screen" />
+</launch>
