@@ -5,7 +5,8 @@ from std_msgs.msg import Float64
 from vesc_msgs.msg import VescStateStamped
 
 def callback(data):
-  print "Duty: " + str(data.state.duty_cycle) + ", RPM: " + str(data.state.speed)
+  #print "Duty: " + str(data.state.duty_cycle) + ", RPM: " + str(data.state.speed)
+  pass
 
 sense_topic = rospy.get_param('sense_topic', 'sensors/core')
 duty_topic = rospy.get_param('duty_topic', 'commands/motor/duty_cycle')
@@ -20,7 +21,10 @@ rospy.Subscriber(sense_topic, VescStateStamped, callback)
 rospy.init_node('test_vesc')
 
 while not rospy.is_shutdown():
-  pub_duty.publish(1.0)
-  pub_rpm.publish(1000)
-  rospy.sleep(1.0)
+  #pub_duty.publish(1.0)
+  for i in range(10):
+    print "i: " + str(i)
+    #pub_duty.publish(0.1*i)
+    pub_rpm.publish(10000*i)
+    rospy.sleep(1.0)
 
