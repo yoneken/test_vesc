@@ -8,10 +8,10 @@ def callback(data):
   #print "Duty: " + str(data.state.duty_cycle) + ", RPM: " + str(data.state.speed)
   pass
 
-sense_topic = rospy.get_param('sense_topic', 'sensors/core')
-duty_topic = rospy.get_param('duty_topic', 'commands/motor/duty_cycle')
-cur_topic = rospy.get_param('current_topic', 'commands/motor/current')
-rpm_topic = rospy.get_param('rpm_topic', 'commands/motor/speed')
+sense_topic = rospy.get_param('~sense_topic', 'sensors/core')
+duty_topic = rospy.get_param('~duty_topic', 'commands/motor/duty_cycle')
+cur_topic = rospy.get_param('~current_topic', 'commands/motor/current')
+rpm_topic = rospy.get_param('~rpm_topic', 'commands/motor/speed')
 
 print sense_topic, duty_topic, rpm_topic
 
